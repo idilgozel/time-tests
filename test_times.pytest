@@ -1,0 +1,41 @@
+
+
+
+def iss_passes():
+    fake_response = {
+    "status_code": 200,
+    "json": lambda: {
+        "large": [("2010-02-12 10:00:00", "2010-02-12 12:00:00")],
+        "short": [("2010-02-12 10:30:00", "2010-02-12 10:45:00")],
+        "expected": [("2010-02-12 10:30:00", "2010-02-12 10:45:00")],
+    },
+    }
+    with path("times.get_response") as mock_get:
+        mock_get.return_value.json.return_value = fake_response
+        result = get_response()
+
+        assert result== fake_response
+
+    mock_get.assert_called_once_with(url)
+
+
+
+url ="https://api.n2yo.com/rest/v1/satellite/visualpasses/25544/56/0/0/5/50&apiKey={VJR5AF-GDAKJ5-DFZ7EG-5QEA}"
+
+
+def iss_passes():
+    fake_response = {
+    "status_code": 200,
+    "json": lambda: {
+        "large": [("2010-02-12 10:00:00", "2010-02-12 12:00:00")],
+        "short": [("2010-02-12 10:30:00", "2010-02-12 10:45:00")],
+        "expected": [("2010-02-12 10:30:00", "2010-02-12 10:45:00")],
+    },
+    }
+    with path("times.get_response") as mock_get:
+        mock_get.return_value.json.return_value = fake_response
+        result = get_response()
+
+        assert result== fake_response
+
+    mock_get.assert_called_once_with(url)
